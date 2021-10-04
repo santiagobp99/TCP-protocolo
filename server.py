@@ -69,8 +69,8 @@ def handle_client(conn, addr):
 
     print(f"[DISCONNECTED] {addr} disconnected")
     conn.close()
-"""
-def archivos():
+
+def archivos(conn):
     print("Menu de opciones")
     
     opc = input("(Opciones 0 y 1 )Desea transmitir un archivo: No:0 , Si:1")
@@ -81,12 +81,12 @@ def archivos():
              opc = int(input("(Opciones 2 y 3 ) Que archivo desea transmitir: 100MB:2 , 250MB:3"))
         elif opc == "2":
             opc = int(input("Escriba al numero de clientes que desea transmitir el archivo:"))
-            enviar_archivos(2, int(opc))
+            enviar_archivos(2, int(opc), conn)
             print("Archivos enviados!")
             opc = int(input(" 4 - Salir de la aplicacion"))
         elif opc == "3":
             opc = int(input("Escriba al numero de clientes que desea transmitir el archivo:"))
-            enviar_archivos()
+            enviar_archivos(3, int(opc), conn)
             print("Archivos enviados!")
             opc = int(input(" 4 - Salir de la aplicacion"))
         elif opc == "4":
@@ -94,18 +94,18 @@ def archivos():
         else:
             break
         
-def enviar_archivos(tipo, cantidad):
-        data = 
-        
-        path = data[1]
+def enviar_archivos(tipo, cantidad, conn):
+        cmd = "UPLOADSERVERS"
+        if tipo == 2:
+            path = "../server_data/100MB.txt"
 
         with open(f"{path}", "r") as f:
             text = f.read()
 
         filename = path.split("/")[-1]
         send_data = f"{cmd}@{filename}@{text}"
-        client.send(send_data.encode(FORMAT))
-"""    
+        conn.send(send_data.encode(FORMAT))
+   
 
 def main():
     print("[STARTING] Server is starting")
@@ -113,6 +113,7 @@ def main():
     server.bind(ADDR)
     server.listen()
     print(f"[LISTENING] Server is listening on {IP}:{PORT}.")
+    conexiones = []
 
     while True:
         conn, addr = server.accept()
@@ -122,8 +123,9 @@ def main():
         
         modo = input('desea enviar archivos No:0 , Si:1')
         
-        #if modo == 1:
-        #    archivos()
+        conexiones.append(conn)
+        if modo == 1:
+            archivos(conn)
 
 if __name__ == "__main__":
     main()
