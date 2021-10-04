@@ -1,10 +1,12 @@
 import socket
+import os
 
 IP = socket.gethostbyname(socket.gethostname())
 PORT = 4456
 ADDR = (IP, PORT)
 FORMAT = "utf-8"
 SIZE = 1024
+CLIENT_DATA_PATH = "client_data"
 
 def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -41,6 +43,14 @@ def main():
 
             filename = path.split("/")[-1]
             send_data = f"{cmd}@{filename}@{text}"
+            client.send(send_data.encode(FORMAT))
+        elif cmd == "UPLOADSERVER":
+            name, text = data[1], data[2]
+            filepath = os.path.join(CLIENT_DATA_PATH, name)
+            with open(filepath, "w") as f:
+                f.write(text)
+    
+            send_data = "OK@File uploaded successfully."
             client.send(send_data.encode(FORMAT))
 
     print("Disconnected from the server.")
