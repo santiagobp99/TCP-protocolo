@@ -3,7 +3,8 @@ import os
 import socket
 import threading
 
-IP = socket.gethostbyname(socket.gethostname())
+#IP = socket.gethostbyname(socket.gethostname()) 
+IP = socket.gethostbyname(socket.gethostname() + ".local")
 PORT = 4456
 ADDR = (IP, PORT)
 SIZE = 1024
