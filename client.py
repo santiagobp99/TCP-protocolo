@@ -24,6 +24,7 @@ def main():
             print(f"{msg}")
 
         data = input("> ")
+        print(data)
         data = data.split(" ")
         cmd = data[0]
 
