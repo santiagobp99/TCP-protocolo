@@ -80,13 +80,13 @@ def archivos(conn):
         elif opc == 1:
              opc = int(input("(Opciones 2 y 3 ) Que archivo desea transmitir: 100MB:2 , 250MB:3"))
         elif opc == 2:
-            opc = int(input("Escriba al numero de clientes que desea transmitir el archivo:"))
-            enviar_archivos(2, int(opc), conn)
+            num = int(input("Escriba al numero de clientes que desea transmitir el archivo:"))
+            enviar_archivos(2, num, conn)
             print("Archivos enviados!")
             opc = int(input(" 4 - Salir de la aplicacion"))
         elif opc == 3:
-            opc = int(input("Escriba al numero de clientes que desea transmitir el archivo:"))
-            enviar_archivos(3, int(opc), conn)
+            num = int(input("Escriba al numero de clientes que desea transmitir el archivo:"))
+            enviar_archivos(3, num, conn)
             print("Archivos enviados!")
             opc = int(input(" 4 - Salir de la aplicacion"))
         elif opc == 4:
