@@ -75,21 +75,21 @@ def archivos(conn):
     
     opc = int(input("(Opciones 0 y 1 )Desea transmitir un archivo: No:0 , Si:1"))
     while(opc!=0):
-        if opc == "0":
+        if opc == 0:
             break
-        elif opc == "1":
+        elif opc == 1:
              opc = int(input("(Opciones 2 y 3 ) Que archivo desea transmitir: 100MB:2 , 250MB:3"))
-        elif opc == "2":
+        elif opc == 2:
             opc = int(input("Escriba al numero de clientes que desea transmitir el archivo:"))
             enviar_archivos(2, int(opc), conn)
             print("Archivos enviados!")
             opc = int(input(" 4 - Salir de la aplicacion"))
-        elif opc == "3":
+        elif opc == 3:
             opc = int(input("Escriba al numero de clientes que desea transmitir el archivo:"))
             enviar_archivos(3, int(opc), conn)
             print("Archivos enviados!")
             opc = int(input(" 4 - Salir de la aplicacion"))
-        elif opc == "4":
+        elif opc == 4:
             opc = int(input("(Opciones 1 y 0 ) Finalizar envio de paquetes: No:0 , Si:1") )
         else:
             break
