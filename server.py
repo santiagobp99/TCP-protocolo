@@ -73,7 +73,7 @@ def handle_client(conn, addr):
 def archivos(conn):
     print("Menu de opciones")
     
-    opc = input("(Opciones 0 y 1 )Desea transmitir un archivo: No:0 , Si:1")
+    opc = int(input("(Opciones 0 y 1 )Desea transmitir un archivo: No:0 , Si:1"))
     while(opc!=0):
         if opc == "0":
             break
@@ -121,7 +121,7 @@ def main():
         thread.start()
         print(f"[ACTIVE CONNECTIONS] {threading.activeCount() - 1}")
         
-        modo = input('desea enviar archivos No:0 , Si:1')
+        modo = int(input('desea enviar archivos No:0 , Si:1'))
         
         conexiones.append(conn)
         if modo == 1:

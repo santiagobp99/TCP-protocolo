@@ -1,7 +1,8 @@
 import socket
 import os
 
-IP = socket.gethostbyname(socket.gethostname())
+#IP = socket.gethostbyname(socket.gethostname())
+IP = "192.168.1.174"
 PORT = 4456
 ADDR = (IP, PORT)
 FORMAT = "utf-8"
