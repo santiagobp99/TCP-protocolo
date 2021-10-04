@@ -95,9 +95,9 @@ def archivos(conn):
             break
         
 def enviar_archivos(tipo, cantidad, conn):
-        cmd = "UPLOADSERVERS"
+        cmd = "UPLOADSERVER"
         if tipo == 2:
-            path = "../server_data/100MB.txt"
+            path = "server_data/100MB.txt"
 
         with open(f"{path}", "r") as f:
             text = f.read()
