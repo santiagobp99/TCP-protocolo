@@ -90,7 +90,7 @@ def archivos(conn):
             print("Archivos enviados!")
             opc = int(input(" 4 - Salir de la aplicacion"))
         elif opc == 4:
-            opc = int(input("(Opciones 1 y 0 ) Finalizar envio de paquetes: No:0 , Si:1") )
+            opc = int(input("(Opciones 1 y 0 ) Finalizar envio de paquetes: No:1 , Si:0") )
         else:
             break
         

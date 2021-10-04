@@ -48,6 +48,7 @@ def main():
         elif cmd == "UPLOADSERVER":
             name, text = data[1], data[2]
             filepath = os.path.join(CLIENT_DATA_PATH, name)
+            print(filepath)
             with open(filepath, "w") as f:
                 f.write(text)
     
