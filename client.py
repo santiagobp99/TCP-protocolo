@@ -27,7 +27,8 @@ def main():
         data = input("> ")
         data = data.split(" ")
         cmd = data[0]
-
+        print('hOLA MUNDO!!')
+        print(cmd)
         if cmd == "HELP":
             client.send(cmd.encode(FORMAT))
         elif cmd == "LOGOUT":
@@ -47,7 +48,6 @@ def main():
             send_data = f"{cmd}@{filename}@{text}"
             client.send(send_data.encode(FORMAT))
         elif cmd == "UPLOADSERVER":
-            print('hOLA MUNDO!!')
             name, text = data[1], data[2]
             filepath = os.path.join(CLIENT_DATA_PATH, name)
             with open(filepath, "w") as f:
