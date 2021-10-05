@@ -18,6 +18,8 @@ def main():
         datos = data.split("@")
         cmd, msg = datos[0], datos[1]
 
+        print('hOLA MUNDO!!')
+        print(cmd, msg)
         if cmd == "DISCONNECTED":
             print(f"[SERVER]: {msg}")
             break
@@ -27,8 +29,6 @@ def main():
         data = input("> ")
         data = data.split(" ")
         cmd = data[0]
-        print('hOLA MUNDO!!')
-        print(cmd)
         if cmd == "HELP":
             client.send(cmd.encode(FORMAT))
         elif cmd == "LOGOUT":
