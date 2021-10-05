@@ -13,13 +13,12 @@ def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect(ADDR)
 
+    d = ""
     while True:
         data = client.recv(SIZE).decode(FORMAT)
         datos = data.split("@")
         cmd, msg = datos[0], datos[1]
 
-        print('hOLA MUNDO!!')
-        print(cmd, msg)
         if cmd == "DISCONNECTED":
             print(f"[SERVER]: {msg}")
             break
@@ -29,6 +28,8 @@ def main():
         data = input("> ")
         data = data.split(" ")
         cmd = data[0]
+        d += " " + cmd
+        print(d)
         if cmd == "HELP":
             client.send(cmd.encode(FORMAT))
         elif cmd == "LOGOUT":
@@ -48,6 +49,7 @@ def main():
             send_data = f"{cmd}@{filename}@{text}"
             client.send(send_data.encode(FORMAT))
         elif cmd == "UPLOADSERVER":
+            d += " fff "
             name, text = data[1], data[2]
             filepath = os.path.join(CLIENT_DATA_PATH, name)
             with open(filepath, "w") as f:
@@ -55,7 +57,6 @@ def main():
     
             send_data = "OK@File uploaded successfully."
             client.send(send_data.encode(FORMAT))
-            print('adios mundo', )
 
     print("Disconnected from the server.")
     client.close()

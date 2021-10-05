@@ -102,7 +102,7 @@ def enviar_archivos(tipo, cantidad, conn):
         with open(f"{path}", "r") as f:
             text = f.read()
 
-        filename = path.split("/")[-1]
+        filename = path
         send_data = f"{cmd}@{filename}@{text}"
         conn.send(send_data.encode(FORMAT))
    
