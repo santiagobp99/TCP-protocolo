@@ -16,7 +16,8 @@ def main():
     while True:
         data = client.recv(SIZE).decode(FORMAT)
         print(data)
-        cmd, msg = data.split("@")
+        datos = data.split("@")
+        cmd, msg = datos[0], datos[1]
 
         if cmd == "DISCONNECTED":
             print(f"[SERVER]: {msg}")
