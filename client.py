@@ -15,6 +15,7 @@ def main():
 
     while True:
         data = client.recv(SIZE).decode(FORMAT)
+        print(data)
         cmd, msg = data.split("@")
 
         if cmd == "DISCONNECTED":
@@ -24,7 +25,6 @@ def main():
             print(f"{msg}")
 
         data = input("> ")
-        print(data)
         data = data.split(" ")
         cmd = data[0]
 
