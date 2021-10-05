@@ -15,7 +15,6 @@ def main():
 
     while True:
         data = client.recv(SIZE).decode(FORMAT)
-        print(data)
         datos = data.split("@")
         cmd, msg = datos[0], datos[1]
 
@@ -48,14 +47,15 @@ def main():
             send_data = f"{cmd}@{filename}@{text}"
             client.send(send_data.encode(FORMAT))
         elif cmd == "UPLOADSERVER":
+            print('hOLA MUNDO!!')
             name, text = data[1], data[2]
             filepath = os.path.join(CLIENT_DATA_PATH, name)
-            print(filepath)
             with open(filepath, "w") as f:
                 f.write(text)
     
             send_data = "OK@File uploaded successfully."
             client.send(send_data.encode(FORMAT))
+            print('adios mundo', )
 
     print("Disconnected from the server.")
     client.close()
